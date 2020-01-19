@@ -118,13 +118,48 @@ main {
   grid-gap: 0.7rem;
   grid-template-columns: repeat(3, 1fr);
 
-  img {
+  .pic {
+    height: 200px;
     width: 100%;
     border: 3px #fff solid;
+    position: relative;
+    margin-bottom: 0.7rem;
 
-    &:hover {
-      opacity: 0.5;
+    img {
+      height: 100%;
+      width: 100%;
+
+      &:hover {
+        background-color: #000;
+      }
+    }
+
+    .desc {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      visibility: hidden;
+      background-color: set-text-color($primary-color);
+      color: $primary-color;
+      text-align: center;
+
+      h2 {
+        margin-top: 20%;
+      }
+      h4 {
+        margin-top: 5px;
+        color: $secondary-color;
+      }
+    }
+
+    &:hover > .desc {
       border-color: $secondary-color;
+      visibility: visible;
       @include easeOut;
     }
   }
